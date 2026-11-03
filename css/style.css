@@ -1,0 +1,192 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #faf8fc;
+    color: #302b36;
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+    color: #65459a;
+    font-size: 27px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #e79ab8;
+}
+
+.navbar {
+    display: flex;
+    gap: 28px;
+}
+
+.navbar a {
+    color: #393342;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a:hover {
+    color: #8056b3;
+}
+
+.hero {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    padding: 60px 10%;
+    background: linear-gradient(120deg, #eee4fa, #fceaf1);
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.eyebrow {
+    color: #8056b3;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    margin: 15px 0;
+    color: #49346b;
+    font-size: clamp(42px, 6vw, 64px);
+    line-height: 1.1;
+}
+
+.hero-content > p:not(.eyebrow) {
+    color: #716a7a;
+    margin-bottom: 25px;
+}
+
+.shop-btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: #8056b3;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.shop-btn:hover {
+    background: #654294;
+}
+
+.featured-section {
+    padding: 55px 8%;
+    text-align: center;
+}
+
+.featured-section h2 {
+    color: #49346b;
+    font-size: 30px;
+}
+
+.featured-section > p {
+    margin: 8px 0 30px;
+    color: #817a88;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 25px;
+    text-align: left;
+}
+
+.product-card {
+    overflow: hidden;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(60, 40, 80, 0.08);
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.product-info {
+    padding: 17px;
+}
+
+.product-info h3 {
+    color: #49346b;
+    margin-bottom: 6px;
+}
+
+.product-info p {
+    color: #8056b3;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.product-info a,
+.add-cart-btn {
+    display: inline-block;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 14px;
+    background: #8056b3;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+footer {
+    padding: 22px;
+    background: #49346b;
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px;
+    }
+
+    .navbar {
+        gap: 18px;
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 350px;
+        padding: 45px 8%;
+    }
+
+    .featured-section {
+        padding: 40px 6%;
+    }
+}
