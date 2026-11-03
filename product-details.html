@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | ShopEase</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">ShopEase<span>.</span></a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <main class="featured-section">
+        <div id="product-detail"></div>
+    </main>
+
+    <footer>
+        <p>© 2026 ShopEase. All rights reserved.</p>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/router.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const productId = Number(params.get("id"));
+        const product = products.find(item => item.id === productId);
+        const container = document.getElementById("product-detail");
+
+        if (product) {
+            container.innerHTML = `
+                <img src="${product.image}" alt="${product.name}"
+                     style="width:100%; max-width:400px; height:300px; object-fit:cover; border-radius:14px;">
+                <h2 style="margin-top:20px;">${product.name}</h2>
+                <p style="color:#8056b3; font-size:22px; font-weight:bold; margin:12px;">
+                    ₹${product.price.toLocaleString("en-IN")}
+                </p>
+                <p>${product.description}</p>
+                <button class="add-cart-btn" data-product-id="${product.id}"
+                        style="margin-top:20px;">
+                    Add to Cart
+                </button>
+            `;
+        } else {
+            container.innerHTML = "<h2>Product not found</h2><a href='products.html'>Back to Products</a>";
+        }
+
+        container.addEventListener("click", function(event) {
+            const button = event.target.closest(".add-cart-btn");
+
+            if (button) {
+                addToCart(Number(button.dataset.productId));
+            }
+        });
+    </script>
+</body>
+</html>

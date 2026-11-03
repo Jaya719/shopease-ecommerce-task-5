@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | ShopEase</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">ShopEase<span>.</span></a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <main class="featured-section">
+        <h2>Our Products</h2>
+        <p>Explore our complete collection.</p>
+
+        <input type="text" id="product-search"
+               placeholder="Search products..."
+               style="padding:12px; width:100%; max-width:400px; margin-bottom:25px;">
+
+        <div id="all-products" class="product-grid"></div>
+    </main>
+
+    <footer>
+        <p>© 2026 ShopEase. All rights reserved.</p>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/router.js"></script>
+    <script>
+        displayProducts(products, "all-products");
+
+        document.getElementById("product-search").addEventListener("input", function () {
+            const searchText = this.value.toLowerCase();
+
+            const filteredProducts = products.filter(product =>
+                product.name.toLowerCase().includes(searchText) ||
+                product.category.toLowerCase().includes(searchText)
+            );
+
+            displayProducts(filteredProducts, "all-products");
+        });
+    </script>
+</body>
+</html>
